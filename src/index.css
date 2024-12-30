@@ -141,13 +141,19 @@ button:focus-visible {
 /* input  */
 .input-container{
   width: 1000px;
-  height: 140px;
-  display: flex;
-  justify-content: center;
+  white-space: wrap;
+  /* height: 140px; */
+  /* display: flex; */
+  /* justify-content: end; */
   background-color: #1a1a1a;
   border-radius: 20px;
+  font-size: 25px;
   /* margin: 20px 0; */
   padding: 10px 20px;
+}
+.input-container span{
+  color: white;
+  display: inline-block;
 }
 .input-container input{
   height: 140px;
