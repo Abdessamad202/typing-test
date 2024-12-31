@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Text() {
   const [test, setTest] = useState([..."Lorem ipsum dolor sit amet consectetur adipisicing elit Soluta consequuntur id nihil mollitia accusantium laboriosam dolorem ullam quos quod eos libero minima dicta blanditiis dolore non nostrum vitae quaerat culpa"]);
   const [count, setCount] = useState(0);
-  const showTest = (element)=> element.map((el,index)=>(el === ' ' ? <span key={index} id={index}>&nbsp;</span> :<span key={index} id={index}>{el}</span>))
+  const showSpan = (el,index)=>(
+    el === ' '
+    ? <span key={index} id={index}>&nbsp;</span>
+    :<span key={index} id={index}>{el}</span>
+  )
+  const showTest = (element)=> element.map(showSpan)
   const [value, setvalue] = useState("");
   const hanchleChange = (e) => {
     if (e.target.value[count] === ' ') {
@@ -12,7 +17,6 @@ export default function Text() {
       if (value.length > e.target.value.length) {
         setCount(count - 1);
         let span = document.getElementById(value.length - 1);
-        console.log(span);
         span.style.color = 'white';
       }else {
         let span = document.getElementById(count);
@@ -25,10 +29,6 @@ export default function Text() {
       }
     }
     setvalue(e.target.value);
-    console.log(count);
-
-    // setCount(value.lenght-1);
-
   }
   return(
     <>
